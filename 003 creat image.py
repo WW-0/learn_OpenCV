@@ -11,7 +11,7 @@ cv2.imshow('image2', image2)
 
 """assign 赋值"""
 image3 = image2  # 参看浅赋值和深复制
-image2[100:200, 200:300, :] = 255
+image2[100:200, 200:300, :] = -1
 cv2.imshow('image3', image3)
 
 image4 = np.zeros(image1.shape, image1.dtype)
