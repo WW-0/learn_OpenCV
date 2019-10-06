@@ -1,35 +1,27 @@
 import cv2
 
-image0=cv2.imread('01a.jpg')
-cv2.namedWindow('rgb',cv2.WINDOW_AUTOSIZE)
-cv2.imshow('RGB',image0)
+image0 = cv2.imread('01a.jpg')
+cv2.namedWindow('RGB', cv2.WINDOW_AUTOSIZE)
+cv2.imshow('RGB', image0)
 
-#RGB to HSV
-hsv=cv2.cvtColor(image0,cv2.COLOR_BGR2HSV)
-cv2.imshow('HSV',hsv)
+# RGB to HSV
+hsv0 = cv2.cvtColor(image0, cv2.COLOR_BGR2HSV)  # H:0-180 S:0-255 V:0-255
+cv2.imshow('HSV0', hsv0)
 
+# RGB to YUV
+yuv = cv2.cvtColor(image0, cv2.COLOR_BGR2YUV)
+cv2.imshow('YUV', yuv)
+
+# RGB to YCrCb
+ycrcb = cv2.cvtColor(image0, cv2.COLOR_BGR2YCrCb)
+cv2.imshow("ycrcb", ycrcb)
+
+image1 = cv2.imread('01a.jpg')
+cv2.imshow("image1", image1)
+hsv1 = cv2.cvtColor(image1, cv2.COLOR_BGR2HSV)
+mask = cv2.inRange(hsv1, (35, 43, 46), (99, 255, 255))
+# lower(35,43,46)===>0,upper(99,255,255)200==>0,others==>255
+cv2.imshow("mask", mask)
 
 cv2.waitKey(0)
 cv2.destroyAllWindows()
-
-
-# # RGB to HSV
-# hsv = cv.cvtColor(src, cv.COLOR_BGR2HSV)
-# cv.imshow("hsv", hsv)
-#
-# # RGB to YUV
-# yuv = cv.cvtColor(src, cv.COLOR_BGR2YUV)
-# cv.imshow("yuv", yuv)
-#
-# # RGB to YUV
-# ycrcb = cv.cvtColor(src, cv.COLOR_BGR2YCrCb)
-# cv.imshow("ycrcb", ycrcb)
-#
-# src2 = cv.imread("test.png");
-# cv.imshow("src2", src2)
-# hsv = cv.cvtColor(src2, cv.COLOR_BGR2HSV)
-# mask = cv.inRange(hsv, (35, 43, 46), (99, 255, 255))
-# cv.imshow("mask", mask)
-#
-# cv.waitKey(0)
-# cv.destroyAllWindows()

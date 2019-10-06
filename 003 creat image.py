@@ -14,6 +14,9 @@ image3 = image2  # 参看浅赋值和深复制
 image2[100:200, 200:300, :] = -1
 cv2.imshow('image3', image3)
 
+cv2.imshow('1',np.zeros((400,400),dtype=np.uint8))#全0图
+cv2.imshow('2',np.full((400,400),255,dtype=np.uint8))#全255图
+
 image4 = np.zeros(image1.shape, image1.dtype)
 cv2.imshow('image4', image4)
 
